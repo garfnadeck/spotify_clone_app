@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:spotify_clone_app/widgets/album_card.dart';
 
 class AlbumView extends StatefulWidget {
-  const AlbumView({Key? key}) : super(key: key);
+  final ImageProvider image;
+
+  const AlbumView({Key? key, required this.image}) : super(key: key);
 
   @override
   _AlbumViewState createState() => _AlbumViewState();
@@ -43,6 +45,7 @@ class _AlbumViewState extends State<AlbumView> {
 
   @override
   Widget build(BuildContext context) {
+    final cardSize = MediaQuery.of(context).size.width / 2 - 24;
     return Scaffold(
       body: Stack(
         children: [
@@ -67,7 +70,7 @@ class _AlbumViewState extends State<AlbumView> {
                           spreadRadius: 16)
                     ]),
                     child: Image(
-                      image: AssetImage("assets/album2.jpg"),
+                      image: widget.image,
                       width: imageSize,
                       height: imageSize,
                       fit: BoxFit.cover,
@@ -165,34 +168,71 @@ class _AlbumViewState extends State<AlbumView> {
                         Padding(
                           padding: const EdgeInsets.symmetric(vertical: 16),
                           child: SingleChildScrollView(
-                            scrollDirection: Axis.horizontal,
-                            child: Row(
+                            child: Column(
                               children: [
-                                AlbumCard(
-                                    image: AssetImage("assets/album1.png"),
-                                    label: "First Solo",
-                                    onTap: () {}),
-                                SizedBox(
-                                  width: 16,
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceAround,
+                                  children: [
+                                    AlbumCard(
+                                        size: cardSize,
+                                        image: AssetImage("assets/album1.png"),
+                                        label: "First Solo",
+                                        onTap: () {}),
+                                    SizedBox(
+                                      width: 16,
+                                    ),
+                                    AlbumCard(
+                                        size: cardSize,
+                                        image: AssetImage("assets/album2.jpg"),
+                                        label: "Miracle",
+                                        onTap: () {}),
+                                  ],
                                 ),
-                                AlbumCard(
-                                    image: AssetImage("assets/album2.jpg"),
-                                    label: "Miracle",
-                                    onTap: () {}),
                                 SizedBox(
-                                  width: 16,
+                                  height: 36,
                                 ),
-                                AlbumCard(
-                                    image: AssetImage("assets/album4.jpg"),
-                                    label: "Get Turnt",
-                                    onTap: () {}),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceAround,
+                                  children: [
+                                    AlbumCard(
+                                        size: cardSize,
+                                        image: AssetImage("assets/album4.jpg"),
+                                        label: "Get Turnt",
+                                        onTap: () {}),
+                                    SizedBox(
+                                      width: 16,
+                                    ),
+                                    AlbumCard(
+                                        size: cardSize,
+                                        image: AssetImage("assets/album5.jpg"),
+                                        label: "Swipe sides",
+                                        onTap: () {}),
+                                  ],
+                                ),
                                 SizedBox(
-                                  width: 16,
+                                  height: 36,
                                 ),
-                                AlbumCard(
-                                    image: AssetImage("assets/album5.jpg"),
-                                    label: "Swipe sides",
-                                    onTap: () {}),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceAround,
+                                  children: [
+                                    AlbumCard(
+                                        size: cardSize,
+                                        image: AssetImage("assets/album4.jpg"),
+                                        label: "Get Turnt",
+                                        onTap: () {}),
+                                    SizedBox(
+                                      width: 16,
+                                    ),
+                                    AlbumCard(
+                                        size: cardSize,
+                                        image: AssetImage("assets/album5.jpg"),
+                                        label: "Swipe sides",
+                                        onTap: () {}),
+                                  ],
+                                )
                               ],
                             ),
                           ),
@@ -207,11 +247,14 @@ class _AlbumViewState extends State<AlbumView> {
           Positioned(
             child: Container(
               child: AnimatedContainer(
-                duration: Duration(milliseconds: 500),
-                padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                duration: Duration(milliseconds: 250),
                 color: showTopBar
-                    ? Color(0xffc61855).withOpacity(1)
-                    : Color(0xffc61855).withOpacity(0),
+                    ? Color(0xFFC61855).withOpacity(1)
+                    : Color(0xFFC61855).withOpacity(0),
+                padding: EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: 8,
+                ),
                 child: SafeArea(
                   child: Container(
                     height: 40,
@@ -222,18 +265,21 @@ class _AlbumViewState extends State<AlbumView> {
                       children: [
                         Positioned(
                           left: 0,
-                          child: IconButton(
-                            icon: Icon(Icons.arrow_back),
-                            onPressed: () {
+                          child: GestureDetector(
+                            onTap: () {
                               Navigator.pop(context);
                             },
+                            child: Icon(
+                              Icons.keyboard_arrow_left,
+                              size: 38,
+                            ),
                           ),
                         ),
                         AnimatedOpacity(
+                          duration: Duration(milliseconds: 250),
                           opacity: showTopBar ? 1 : 0,
-                          duration: Duration(microseconds: 500),
                           child: Text(
-                            "Lorem Ipsum",
+                            "Ophelia",
                             style: Theme.of(context).textTheme.headline6,
                           ),
                         ),
@@ -242,36 +288,37 @@ class _AlbumViewState extends State<AlbumView> {
                           bottom: 80 -
                               containerHeight.clamp(120.0, double.infinity),
                           child: Stack(
-                              alignment: Alignment.bottomRight,
-                              children: [
-                                Container(
-                                  width: 64,
-                                  height: 64,
-                                  alignment: Alignment.center,
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    color: Color(0xff14d860),
-                                  ),
-                                  child: Icon(
-                                    Icons.play_arrow,
-                                    size: 38,
-                                  ),
+                            alignment: Alignment.bottomRight,
+                            children: [
+                              Container(
+                                width: 64,
+                                height: 64,
+                                alignment: Alignment.center,
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: Color(0xff14D860),
                                 ),
-                                Container(
-                                  width: 24,
-                                  height: 24,
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    color: Colors.white,
-                                  ),
-                                  child: Icon(
-                                    Icons.shuffle,
-                                    color: Colors.black,
-                                    size: 14,
-                                  ),
+                                child: Icon(
+                                  Icons.play_arrow,
+                                  size: 38,
                                 ),
-                              ]),
-                        ),
+                              ),
+                              Container(
+                                width: 24,
+                                height: 24,
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: Colors.white,
+                                ),
+                                child: Icon(
+                                  Icons.shuffle,
+                                  color: Colors.black,
+                                  size: 14,
+                                ),
+                              )
+                            ],
+                          ),
+                        )
                       ],
                     ),
                   ),

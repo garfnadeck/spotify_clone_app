@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:spotify_clone_app/widgets/album_card.dart';
-import 'package:spotify_clone_app/widgets/album_item_card.dart';
 import 'package:spotify_clone_app/widgets/song_card.dart';
-
-import 'album_view.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({Key? key}) : super(key: key);
@@ -73,14 +70,6 @@ class _HomeViewState extends State<HomeView> {
                         image: AssetImage(
                           "assets/album1.png",
                         ),
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => AlbumView(),
-                            ),
-                          );
-                        },
                       ),
                       SizedBox(width: 16),
                       AlbumCard(
@@ -88,14 +77,6 @@ class _HomeViewState extends State<HomeView> {
                         image: AssetImage(
                           "assets/album2.png",
                         ),
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => AlbumView(),
-                            ),
-                          );
-                        },
                       ),
                       SizedBox(width: 16),
                       AlbumCard(
@@ -103,14 +84,6 @@ class _HomeViewState extends State<HomeView> {
                         image: AssetImage(
                           "assets/album2.jpg",
                         ),
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => AlbumView(),
-                            ),
-                          );
-                        },
                       ),
                       SizedBox(width: 16),
                       AlbumCard(
@@ -118,14 +91,6 @@ class _HomeViewState extends State<HomeView> {
                         image: AssetImage(
                           "assets/album14.jpg",
                         ),
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => AlbumView(),
-                            ),
-                          );
-                        },
                       ),
                       SizedBox(width: 16),
                       AlbumCard(
@@ -133,14 +98,6 @@ class _HomeViewState extends State<HomeView> {
                         image: AssetImage(
                           "assets/album5.jpg",
                         ),
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => AlbumView(),
-                            ),
-                          );
-                        },
                       ),
                       SizedBox(width: 16),
                       AlbumCard(
@@ -148,14 +105,6 @@ class _HomeViewState extends State<HomeView> {
                         image: AssetImage(
                           "assets/album15.jpg",
                         ),
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => AlbumView(),
-                            ),
-                          );
-                        },
                       ),
                       SizedBox(width: 16),
                       AlbumCard(
@@ -163,14 +112,6 @@ class _HomeViewState extends State<HomeView> {
                         image: AssetImage(
                           "assets/album7.jpg",
                         ),
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => AlbumView(),
-                            ),
-                          );
-                        },
                       ),
                     ],
                   ),
@@ -240,35 +181,57 @@ class _HomeViewState extends State<HomeView> {
                       ),
                     ),
                     SingleChildScrollView(
-                      padding: EdgeInsets.symmetric(horizontal: 20),
                       scrollDirection: Axis.horizontal,
-                      physics: BouncingScrollPhysics(),
+                      padding: EdgeInsets.all(16),
                       child: Row(
                         children: [
-                          SongCard(
-                            image: AssetImage("assets/cover2ne1.jpg"),
-                            text: "The best of 2NE1 hits 2021",
+                          AlbumCard(
+                            label: "JP",
+                            image: AssetImage(
+                              "assets/album2.png",
+                            ),
                           ),
                           SizedBox(width: 16),
-                          SongCard(
-                            image: AssetImage("assets/coverEXO.png"),
-                            text: "Listen the best songs from EXO B-Group",
+                          AlbumCard(
+                            label: "J-Pop",
+                            image: AssetImage(
+                              "assets/album4.jpg",
+                            ),
                           ),
                           SizedBox(width: 16),
-                          SongCard(
-                            image:
-                                AssetImage("assets/coverGirlsGeneration.jpg"),
-                            text: "Girls Generation from 2005 up to now",
+                          AlbumCard(
+                            label: "Miracle",
+                            image: AssetImage(
+                              "assets/album2.jpg",
+                            ),
                           ),
                           SizedBox(width: 16),
-                          SongCard(
-                            image: AssetImage("assets/coverBigBang.jpg"),
-                            text: "Big Bang the greatest hits since 2001",
+                          AlbumCard(
+                            label: "Top Best 50 Japan",
+                            image: AssetImage(
+                              "assets/album14.jpg",
+                            ),
                           ),
                           SizedBox(width: 16),
-                          SongCard(
-                            image: AssetImage("assets/coverBlackPink.jpg"),
-                            text: "Black Pink with all albums and singles",
+                          AlbumCard(
+                            label: "Top Best K-POP",
+                            image: AssetImage(
+                              "assets/album15.jpg",
+                            ),
+                          ),
+                          SizedBox(width: 16),
+                          AlbumCard(
+                            label: "AiMyon ",
+                            image: AssetImage(
+                              "assets/album13.jpg",
+                            ),
+                          ),
+                          SizedBox(width: 16),
+                          AlbumCard(
+                            label: "Best of J-ROCK",
+                            image: AssetImage(
+                              "assets/album7.jpg",
+                            ),
                           ),
                         ],
                       ),
@@ -288,34 +251,57 @@ class _HomeViewState extends State<HomeView> {
                       ),
                     ),
                     SingleChildScrollView(
-                      padding: EdgeInsets.symmetric(horizontal: 20),
                       scrollDirection: Axis.horizontal,
-                      physics: BouncingScrollPhysics(),
+                      padding: EdgeInsets.all(16),
                       child: Row(
                         children: [
-                          SongCard(
-                            image: AssetImage("assets/album6.jpg"),
-                            text: "Radio K-pop",
+                          AlbumCard(
+                            label: "Best Mode",
+                            image: AssetImage(
+                              "assets/album1.png",
+                            ),
                           ),
                           SizedBox(width: 16),
-                          SongCard(
-                            image: AssetImage("assets/album5.jpg"),
-                            text: "Radio Girls Power",
+                          AlbumCard(
+                            label: "Motivation Mix",
+                            image: AssetImage(
+                              "assets/album2.png",
+                            ),
                           ),
                           SizedBox(width: 16),
-                          SongCard(
-                            image: AssetImage("assets/album2.jpg"),
-                            text: "Girls Generation from 2005 up to now",
+                          AlbumCard(
+                            label: "Top 50 - Global",
+                            image: AssetImage(
+                              "assets/album2.jpg",
+                            ),
                           ),
                           SizedBox(width: 16),
-                          SongCard(
-                            image: AssetImage("assets/album7.jpg"),
-                            text: "Big Bang the greatest hits since 2001",
+                          AlbumCard(
+                            label: "Top Best Japan",
+                            image: AssetImage(
+                              "assets/album14.jpg",
+                            ),
                           ),
                           SizedBox(width: 16),
-                          SongCard(
-                            image: AssetImage("assets/album9.jpg"),
-                            text: "Black Pink with all albums and singles",
+                          AlbumCard(
+                            label: "Top Best K-POP",
+                            image: AssetImage(
+                              "assets/album5.jpg",
+                            ),
+                          ),
+                          SizedBox(width: 16),
+                          AlbumCard(
+                            label: "Top K-Pop 2020 ",
+                            image: AssetImage(
+                              "assets/album15.jpg",
+                            ),
+                          ),
+                          SizedBox(width: 16),
+                          AlbumCard(
+                            label: "Best of J-ROCK",
+                            image: AssetImage(
+                              "assets/album7.jpg",
+                            ),
                           ),
                         ],
                       ),

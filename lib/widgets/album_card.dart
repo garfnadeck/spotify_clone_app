@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:spotify_clone_app/views/album_view.dart';
 
 class AlbumCard extends StatelessWidget {
   final ImageProvider image;
@@ -10,14 +11,21 @@ class AlbumCard extends StatelessWidget {
       {Key? key,
       required this.image,
       required this.label,
-      required this.onTap,
+      this.onTap,
       this.size = 120})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: onTap,
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => AlbumView(image: image),
+          ),
+        );
+      },
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
