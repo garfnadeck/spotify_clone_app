@@ -3,6 +3,8 @@ import 'package:spotify_clone_app/widgets/album_card.dart';
 import 'package:spotify_clone_app/widgets/album_item_card.dart';
 import 'package:spotify_clone_app/widgets/song_card.dart';
 
+import 'album_view.dart';
+
 class HomeView extends StatefulWidget {
   const HomeView({Key? key}) : super(key: key);
 
@@ -17,18 +19,8 @@ class _HomeViewState extends State<HomeView> {
         body: Stack(alignment: Alignment.topLeft, children: [
       Container(
         width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.height * .5,
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [
-              Colors.white.withOpacity(0.5),
-              Colors.white.withOpacity(0.1),
-              Colors.black.withOpacity(0),
-            ],
-          ),
-        ),
+        height: MediaQuery.of(context).size.height * .6,
+        decoration: BoxDecoration(color: Color(0xFF1C7A74)),
       ),
       SingleChildScrollView(
         physics: BouncingScrollPhysics(),
@@ -39,6 +31,8 @@ class _HomeViewState extends State<HomeView> {
               end: Alignment.bottomCenter,
               colors: [
                 Colors.black.withOpacity(0),
+                Colors.black.withOpacity(.9),
+                Colors.black.withOpacity(1),
                 Colors.black.withOpacity(1),
               ],
             ),
@@ -74,53 +68,109 @@ class _HomeViewState extends State<HomeView> {
                   padding: EdgeInsets.all(16),
                   child: Row(
                     children: [
-                      AlbumItemCard(
+                      AlbumCard(
                         label: "Best Mode",
                         image: AssetImage(
                           "assets/album1.png",
                         ),
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => AlbumView(),
+                            ),
+                          );
+                        },
                       ),
                       SizedBox(width: 16),
-                      AlbumItemCard(
+                      AlbumCard(
                         label: "Motivation Mix",
                         image: AssetImage(
                           "assets/album2.png",
                         ),
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => AlbumView(),
+                            ),
+                          );
+                        },
                       ),
                       SizedBox(width: 16),
-                      AlbumItemCard(
+                      AlbumCard(
                         label: "Top 50 - Global",
                         image: AssetImage(
                           "assets/album2.jpg",
                         ),
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => AlbumView(),
+                            ),
+                          );
+                        },
                       ),
                       SizedBox(width: 16),
-                      AlbumItemCard(
+                      AlbumCard(
                         label: "Top Best Japan",
                         image: AssetImage(
                           "assets/album14.jpg",
                         ),
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => AlbumView(),
+                            ),
+                          );
+                        },
                       ),
                       SizedBox(width: 16),
-                      AlbumItemCard(
+                      AlbumCard(
                         label: "Top Best K-POP",
                         image: AssetImage(
                           "assets/album5.jpg",
                         ),
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => AlbumView(),
+                            ),
+                          );
+                        },
                       ),
                       SizedBox(width: 16),
-                      AlbumItemCard(
+                      AlbumCard(
                         label: "Top K-Pop 2020 ",
                         image: AssetImage(
                           "assets/album15.jpg",
                         ),
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => AlbumView(),
+                            ),
+                          );
+                        },
                       ),
                       SizedBox(width: 16),
-                      AlbumItemCard(
+                      AlbumCard(
                         label: "Best of J-ROCK",
                         image: AssetImage(
                           "assets/album7.jpg",
                         ),
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => AlbumView(),
+                            ),
+                          );
+                        },
                       ),
                     ],
                   ),
@@ -223,8 +273,10 @@ class _HomeViewState extends State<HomeView> {
                         ],
                       ),
                     ),
+                    SizedBox(height: 16),
                   ],
                 ),
+                SizedBox(height: 16),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
