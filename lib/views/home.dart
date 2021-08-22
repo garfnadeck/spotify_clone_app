@@ -123,12 +123,12 @@ class _HomeViewState extends State<HomeView> {
                     Row(
                       children: [
                         RowAlbumCard(
-                          image: AssetImage("assets/album15.jpg"),
-                          label: ("Top 50 -Global"),
+                          image: AssetImage("assets/top50Global.jpg"),
+                          label: ("Top 50 - Global"),
                         ),
                         SizedBox(width: 16),
                         RowAlbumCard(
-                          image: AssetImage("assets/album15.jpg"),
+                          image: AssetImage("assets/top50Brazil.jpg"),
                           label: ("Top 50 -Brasil"),
                         ),
                       ],
@@ -137,12 +137,12 @@ class _HomeViewState extends State<HomeView> {
                     Row(
                       children: [
                         RowAlbumCard(
-                          image: AssetImage("assets/album15.jpg"),
-                          label: ("Top 50 - UK"),
+                          image: AssetImage("assets/top50Spain.jpg"),
+                          label: ("Top 50 - Spain"),
                         ),
                         SizedBox(width: 16),
                         RowAlbumCard(
-                          image: AssetImage("assets/album15.jpg"),
+                          image: AssetImage("assets/top50Japan.jpg"),
                           label: ("Top 50 -Japão"),
                         ),
                       ],
@@ -151,13 +151,13 @@ class _HomeViewState extends State<HomeView> {
                     Row(
                       children: [
                         RowAlbumCard(
-                          image: AssetImage("assets/album15.jpg"),
-                          label: ("Top 50 - Coreia"),
+                          image: AssetImage("assets/top50Mexico.jpg"),
+                          label: ("Top 50 - Mexico"),
                         ),
                         SizedBox(width: 16),
                         RowAlbumCard(
-                          image: AssetImage("assets/album15.jpg"),
-                          label: ("Top 50 - China"),
+                          image: AssetImage("assets/top50Norway.jpg"),
+                          label: ("Top 50 - Norway"),
                         ),
                       ],
                     ),
